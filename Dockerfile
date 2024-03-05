@@ -16,7 +16,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 
 RUN apt-get update && apt-get install -y libpq-dev && apt-get install -y python3-distutils
-RUN gem install bundler && \
+RUN gem install bundler -v 2.4.22 && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
     bundle install
